@@ -2,19 +2,6 @@ const chai = require('chai');
 const TurtleChallengeGameSimulation = require('../../../src/turtle-challenge-game-simulation/turtle-challenge-game-simulation');
 const expect = chai.expect;
 
-/*
- What to test
- - grid gets whole numbers.
- - grid must have two coordinates
- - start must be within the grid
- - end must be within the grid
- - only one end
- - only one start
- - mines must be within the grid
- - mines can't be on same tile
- - moves format and content (array, string, move/rotate(or r) words)
- */
-
 describe('TurtleChallengeGameSimulation', () => {
 
   describe('constructor', () => {
