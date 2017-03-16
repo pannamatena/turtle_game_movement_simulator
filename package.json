@@ -1,0 +1,21 @@
+{
+  "name": "turtle-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pannamatena/turtle_game_movement_simulator.git"
+  },
+  "author": "Panna Zsamba",
+  "license": "ISC",
+  "dependencies": {
+    "minimist": "^1.2.0"
+  }
+}
