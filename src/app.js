@@ -1,5 +1,4 @@
 const fs = require('fs');
-const parseArgs = require('minimist');
 const TurtleChallengeGameSimulation = require('./turtle-challenge-game-simulation/turtle-challenge-game-simulation');
 
 /**
@@ -8,10 +7,11 @@ const TurtleChallengeGameSimulation = require('./turtle-challenge-game-simulatio
  * @return {{gridFilePath: (*|{w: number, h: number}), movesFilePath: (*|string[])}} File paths for the grid and the movements.
  */
 const getArguments = () => {
-  const args = parseArgs(process.argv.slice(2));
+  const commandWithArguments = process.argv;
+  const args = commandWithArguments.slice(2);
 
-  const gridFilePath = args.grid;
-  const movesFilePath = args.moves;
+  const gridFilePath = args[0];
+  const movesFilePath = args[1];
 
   if (!gridFilePath || !movesFilePath) {
     console.log('usage: turtle-challenge.exe --grid <grid file path> --moves <moves file path>');
@@ -67,5 +67,10 @@ const start = gridJson.start;
 const exit = gridJson.exit;
 const mines = gridJson.mines;
 
-const simulation = new TurtleChallengeGameSimulation(grid, moves, start, exit, mines);
-console.log(simulation.simulateGame());
+try {
+  const simulation = new TurtleChallengeGameSimulation(grid, moves, start, exit, mines);
+  console.log(simulation.simulateGame());
+} catch (err) {
+  console.error(err.message);
+  process.exit(1);
+}
