@@ -2,6 +2,11 @@ const fs = require('fs');
 const parseArgs = require('minimist');
 const TurtleChallengeGameSimulation = require('./turtle-challenge-game-simulation/turtle-challenge-game-simulation');
 
+/**
+ * Gets the necessary arguments for the simulation parameters.
+ *
+ * @return {{gridFilePath: (*|{w: number, h: number}), movesFilePath: (*|string[])}} File paths for the grid and the movements.
+ */
 const getArguments = () => {
   const args = parseArgs(process.argv.slice(2));
 
@@ -18,6 +23,12 @@ const getArguments = () => {
   }
 };
 
+/**
+ * Gets the grid JSON data from file data.
+ *
+ * @param gridFilePath - Path to the file containing grid data
+ * @return {JSON} The JSON object containing the grid data.
+ */
 const getGridJson = gridFilePath => {
   let gridFile;
   try {
@@ -29,6 +40,12 @@ const getGridJson = gridFilePath => {
   return JSON.parse(gridFile);
 };
 
+/**
+ * Gets the movement JSON data from file data.
+ *
+ * @param movesFilePath - Path to the file containing grid data
+ * @return {JSON} The JSON object containing the grid data.
+ */
 const getMovesJson = movesFilePath => {
   let movesFile;
   try {
