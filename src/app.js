@@ -14,7 +14,7 @@ const getArguments = () => {
   const movesFilePath = args[1];
 
   if (!gridFilePath || !movesFilePath) {
-    console.log('usage: turtle-challenge.exe --grid <grid file path> --moves <moves file path>');
+    console.log('Missing parameters! Please provide grid file path and moves file path.');
     process.exit(1);
   }
   return {
